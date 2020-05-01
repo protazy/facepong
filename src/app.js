@@ -50,16 +50,17 @@ function showFirstFacePosition(allFaces) {
     if (allFaces.length === 0) {
         return;
     }
-
     let firstFace = allFaces[0];
-    globs.coords.innerText = "[" + firstFace.box.x + ", " + firstFace.box.y + "]"
+
+    globs.coords.innerText = "[" + firstFace.box.x + ", " + firstFace.box.y + "]";
+
+    Pong.player.y = firstFace.box.y * 3;
 }
 
 async function init() {
     initGlobs();
     await loadModels();
     await showVideo();
-
     startDetectionUpdater();
 }
 
