@@ -1,18 +1,34 @@
+<!doctype html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="styles.css"/>
-    </head>
-    <body>
-        <video id="video" width="640" height="480" autoplay></video>
-        <canvas id="overlay" width="640" height="480"></canvas>
-        <canvas id="photo" width="640" height="480"></canvas>
-
-        <canvas id="game"></canvas>
-
-        <div id="coords"></div>
-
-        <script src="lib/face-api.js"></script>
-        <script src="lib/pong.js"></script>
-        <script src="app.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FacePong!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-light">
+<div class="py-5 text-center">
+    <h2>FacePong</h2>
+    <p class="lead">Use your stupit head to play the game! literally.</p>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-between">
+        <div class="col-6">
+            <div style="display: inline-block; position: relative; width: 640px; height: 480px;">
+                <canvas id="overlay" width="640" height="480"></canvas>
+                <canvas id="photo" width="640" height="480"></canvas>
+            </div>
+        </div>
+        <div class="col-6">
+            <canvas id="game" width="640" height="480"></canvas>
+        </div>
+    </div>
+</div>
+<video id="video" width="640" height="480" autoplay></video>
+<script src="lib/face-api.js"></script>
+<script src="lib/pong.js"></script>
+<script src="app.js"></script>
+</body>
 </html>

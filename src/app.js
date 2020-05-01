@@ -3,7 +3,6 @@ function initGlobs() {
     globs.photoCanvas = document.getElementById("photo");
     globs.photoContext = globs.photoCanvas.getContext("2d");
     globs.video = document.getElementById("video");
-    globs.coords = document.getElementById("coords");
 }
 
 async function loadModels() {
@@ -25,7 +24,6 @@ function startDetectionUpdater() {
 async function update() {
     takePhoto();
     const allFaces = await detectFaces();
-    console.log(allFaces);
     drawDetections(allFaces);
     showFirstFacePosition(allFaces);
 }
@@ -50,11 +48,19 @@ function showFirstFacePosition(allFaces) {
     if (allFaces.length === 0) {
         return;
     }
-    let firstFace = allFaces[0];
 
-    globs.coords.innerText = "[" + firstFace.box.x + ", " + firstFace.box.y + "]";
+    let firstFace = allFaces[0].box;
 
-    Pong.player.y = firstFace.box.y * 3;
+    const gameHeight = 480 * 2;
+    const paddleHeight = 120;
+    const camHeight = 480;
+    const faceHeight = firstFace.height;
+
+    const newGameHeight = gameHeight - paddleHeight;
+    const newCamHeight = camHeight - faceHeight;
+    const faceY = firstFace.y;
+
+    Pong.player.y = (newGameHeight * faceY / newCamHeight)| 0;
 }
 
 async function init() {

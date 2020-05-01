@@ -20,7 +20,7 @@ var Ball = {
             y: (this.canvas.height / 2) - 9,
             moveX: DIRECTION.IDLE,
             moveY: DIRECTION.IDLE,
-            speed: incrementedSpeed || 9
+            speed: 10
         };
     }
 };
@@ -30,9 +30,9 @@ var Paddle = {
     new: function (side) {
         return {
             width: 18,
-            height: 170,
+            height: 120,
             x: side === 'left' ? 150 : this.canvas.width - 150,
-            y: (this.canvas.height / 2) - 35,
+            y: (this.canvas.height / 2) - 60,
             score: 0,
             move: DIRECTION.IDLE,
             speed: 10
@@ -45,8 +45,8 @@ var Game = {
         this.canvas = document.querySelector('#game');
         this.context = this.canvas.getContext('2d');
 
-        this.canvas.width = 1400;
-        this.canvas.height = 1000;
+        this.canvas.width = 640 * 2;
+        this.canvas.height = 480 * 2;
 
         this.canvas.style.width = (this.canvas.width / 2) + 'px';
         this.canvas.style.height = (this.canvas.height / 2) + 'px';
@@ -314,25 +314,6 @@ var Game = {
     },
 
     listen: function () {
-        /*
-        document.addEventListener('keydown', function (key) {
-            // Handle the 'Press any key to begin' function and start the game.
-            if (Pong.running === false) {
-                Pong.running = true;
-                window.requestAnimationFrame(Pong.loop);
-            }
-
-            // Handle up arrow and w key events
-            if (key.keyCode === 38 || key.keyCode === 87) Pong.player.move = DIRECTION.UP;
-
-            // Handle down arrow and s key events
-            if (key.keyCode === 40 || key.keyCode === 83) Pong.player.move = DIRECTION.DOWN;
-        });
-
-        // Stop the player from moving when there are no keys being pressed.
-        document.addEventListener('keyup', function (key) { Pong.player.move = DIRECTION.IDLE; });
-        */
-
         document.addEventListener('keydown', function (key) {
             // Handle the 'Press any key to begin' function and start the game.
             if (Pong.running === false) {

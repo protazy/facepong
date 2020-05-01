@@ -1,9 +1,21 @@
-#overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 #video {
     display: none;
+}
+
+#overlay {
+    position: absolute;
+}
+
+.col-6 {
+    width: 640px;
+    padding: 0 0 0 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.container-fluid {
+    width: 1280px;
+    padding: 0 0 0 0;
 }
